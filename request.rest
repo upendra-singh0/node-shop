@@ -1,0 +1,41 @@
+GET  http://localhost:5000
+###
+POST  http://localhost:5000/users/signup
+Content-Type: application/json
+
+{
+    "email": "xyz@abc.com",
+    "password": "abc123"
+}
+###
+POST  http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "email": "xyz@abc.com",
+    "password": "abc123"
+}
+###
+GET  http://localhost:5000/products
+###
+GET  http://localhost:5000/orders/5ee26f9b9332ab1ef47b6bd4
+###
+DELETE   http://localhost:5000/users/5ee3b405ccc25f28f4fc32c0
+###
+POST  http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "email": "xyz@gmail.com",
+    "password": "12345"
+}
+###
+PATCH   http://localhost:5000/orders/5ee26f9b9332ab1ef47b6bd4
+Content-Type: application/json
+
+{
+    "quantity": 9119,
+    "productId": "5ee34ff33fb3313ee462dd6a"
+}
+
+###
