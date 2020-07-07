@@ -51,3 +51,21 @@ exports.loginUser = async ({ email, password }) => {
     throw new Error(error);
   }
 };
+
+exports.getToken = async ({ refreshToken }) => {
+  try {
+    const token = await userService.getToken({ refreshToken });
+    return token;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+exports.logoutUser = async ({ refreshToken }) => {
+  try {
+    const user = await userService.getUser({ refreshToken });
+    return user;
+  } catch (error) {
+    throw new Error(error);
+  }
+};

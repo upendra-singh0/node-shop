@@ -66,4 +66,28 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/token', async (req, res) => {
+  try {
+    const { data } = processRequest(req);
+    const { refreshToken } = data;
+    const user = await userController.getToken({
+      refreshToken,
+    });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.post('/logout', async (req, res) => {
+  try {
+    const { data } = processRequest(req);
+    const { refreshToken } = data;
+    const user = await userController.logoutUser({ refreshToken });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
